@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 29% 95%;
+    --foreground: 180 4% 20%;
+    --card: 45 38% 98%;
+    --card-foreground: 180 4% 20%;
+    --primary: 9 41% 47%;
+    --primary-foreground: 45 29% 96%;
+    --secondary: 43 16% 92%;
+    --secondary-foreground: 180 4% 20%;
+    --muted: 43 14% 91%;
+    --muted-foreground: 180 3% 42%;
+    --accent: 9 41% 47%;
+    --accent-foreground: 45 29% 96%;
+    --destructive: 0 58% 45%;
+    --destructive-foreground: 45 29% 96%;
+    --border: 43 13% 82%;
+    --input: 43 13% 82%;
+    --ring: 9 41% 47%;
+    --radius: 0.75rem;
+    --paper: 45 29% 95%;
+    --ink: 180 4% 20%;
+    --pomodoro: 9 41% 47%;
+    --basilico: 108 17% 34%;
+    --crema: 42 30% 89%;
+    --font-heading: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-script: 'Caveat', 'Segoe Script', cursive;
+  }
+  * {
+    border-color: hsl(var(--border));
+    outline-color: hsl(var(--ring) / 0.5);
+  }
+  body {
+    background-color: hsl(var(--background));
+    font-family: var(--font-body);
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: radial-gradient(circle at 14% 6%, #f1ede4bf, #0000 46%),
+      radial-gradient(circle at 86% 94%, #f1ede499, #0000 48%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .font-script { font-family: var(--font-script); font-weight: 600; }
+  .eyebrow {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: hsl(var(--ink) / 0.45);
+    font-size: 0.62rem;
+    font-weight: 600;
+  }
+  .card-soft {
+    box-shadow: 0 1px 2px #3135350a, 0 22px 46px -34px #31353573;
+  }
+  .glyph-anim { animation: 0.5s cubic-bezier(0.22, 0.9, 0.25, 1.25) both glyph-in; }
+  .rise-in { animation: 0.7s cubic-bezier(0.22, 0.8, 0.2, 1) both rise-in; }
+  .modal-in { animation: 0.18s ease-out both modal-in; }
+}
+
+@keyframes glyph-in {
+  0% { opacity: 0; transform: scale(0.35) rotate(-8deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes rise-in {
+  0% { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes modal-in {
+  0% { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+}
